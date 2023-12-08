@@ -1,3 +1,5 @@
+import Nav from "@components/Nav";
+import Provider from "@components/Provider";
 import "@styles/globals.css";
 
 export const metaData = {
@@ -5,17 +7,22 @@ export const metaData = {
   description: "Discover & share AI prompts",
 };
 
-function layout({ children }) {
+function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
-        <div className="main">
-          <div className="gradient" />
-        </div>
-        <main className="app">{children}</main>
+        <Provider>
+          <div className="main">
+            <div className="gradient" />
+          </div>
+          <main className="app">
+            <Nav />
+            {children}
+          </main>
+        </Provider>
       </body>
     </html>
   );
 }
 
-export default layout;
+export default RootLayout;
